@@ -12,17 +12,17 @@
 
 Configurations are set inside each python file.
 
-``> python train_expert.py
+``> python train_expert.py ``
 
-``> python collect_traj.py
+``> python collect_traj.py ``
 
 
 2. Test model
 
 Example 1:
 
-``> python imit.py
+``> python imit.py``
 
 Example 2:
 
-``> python main_Fourrooms.py
+``> python main_Fourrooms.py``
