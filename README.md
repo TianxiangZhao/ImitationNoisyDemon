@@ -3,7 +3,9 @@
 ## Dependencies
 * pytorch
 * imitation
-* stable_baselines3
+* imblearn
+* stable_baselines3==1.5.0
+* gym-minigrid==1.0.3
 
 
 ## Usage Instructions
