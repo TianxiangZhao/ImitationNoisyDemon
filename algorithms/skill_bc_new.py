@@ -503,7 +503,7 @@ class SkillBC(object):
             proto_sets = self.match_net.proto_memory
             proto_dis = self.distance_func(proto_sets, proto_sets)
             proto_div_loss = torch.triu(torch.clamp(self.d_min-proto_dis, 0), diagonal=1).sum()
-            S_entropy_ins = -torch.mul(S_mat, torch.log(S_mat)).mean(dim=0).sum()
+            S_entropy_ins = -torch.mul(S_mat, torch.log(S_mat+0.0000001)).mean(dim=0).sum()
 
             # cluster pseudo label
             if self.correct_softmax:
@@ -872,6 +872,7 @@ class SkillBC(object):
                     logs = self.train_batch(batched_demon, use_bi=use_bi, opt_all=opt_all, weight=weights[b])
                     #print("train batch time: {}".format(time.time() - time_train_batch_start))
                 else:
+                    print("start batch {}".format(b))
                     time_train_batch_start = time.time()
                     logs = self.train_batch(batched_demon, use_bi=use_bi, opt_all=opt_all)
                     #print("train batch time: {}".format(time.time() - time_train_batch_start))

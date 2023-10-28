@@ -46,7 +46,7 @@ class MatchNet(torch.nn.Module):
         s_prob = torch.softmax(s_matrix/self.temper, dim=-1)
 
         # use gumbel softmax
-        s_sampled = m_utils.gumbel_softmax(torch.log(s_prob), hard=self.hard_sel)
+        s_sampled = m_utils.gumbel_softmax(torch.log(s_prob+0.000001), hard=self.hard_sel)
         if deterministic:
             s_sampled.fill_(0)
             index = s_prob.argmax(dim=-1)
